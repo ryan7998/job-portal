@@ -1,6 +1,6 @@
-Job Portal MVC Mini-Application Documentation
+# Job Portal MVC Mini-Application Documentation
 Link: https://jobportal.onthis.website/
-1. Overview
+## 1. Overview
 This project is a simple Job Portal built using native PHP and MySQL without relying on third-party frameworks. It demonstrates modern web development practices such as:
 
 MVC Architecture: Separating concerns into Models, Views, and Controllers.
@@ -10,7 +10,10 @@ Progressive Enhancement: Using $oldInput as a fallback when JavaScript is disabl
 Dashboard View: A modern, responsive dashboard implemented with Flexbox instead of traditional HTML tables.
 Additional Features: Job title uniqueness checking, rate limiting based on IP and user agent, and dashboard optimization via database indexing.
 
-2. Directory Structure
+## 2. Directory Structure
+
+```plaintext
+
 project-root/
 ├── app/
 │   ├── config/               # Environment configurations (e.g., database.php)
@@ -27,12 +30,12 @@ project-root/
 ├── migrations/               # Database schema migration scripts (e.g., 001_initial_schema.sql)
 ├── uploads/                  # Uploaded files (stored outside the web root for security)
 └── docs/                     # Project documentation (this file and architecture diagrams)
-
+```
 Additional Files
 .htaccess (in public/):
 Blocks direct access to sensitive directories like app/ and config/.
 
-3. Installation & Setup
+## 3. Installation & Setup
 Prerequisites
 -PHP 7.x or above (with PDO support)
 -MySQL (or a compatible database, e.g., MariaDB)
@@ -57,7 +60,7 @@ Installation Steps
         php -S localhost:8000 -t public
         Access the application at: http://localhost:8000
 
-4. Key Features & Design Decisions
+## 4. Key Features & Design Decisions
 - MVC Architecture
     Controllers:
         JobController.php (and BaseController.php) handle form submissions, AJAX requests, and dashboard rendering.
@@ -87,14 +90,14 @@ Installation Steps
     Database Optimization:
         The job title is set as UNIQUE and indexed to support AJAX uniqueness checks. Indexes on title and country improve dashboard filtering performance.
 
-5. Additional Utilities
+## 5. Additional Utilities
 - SendEmail Utility
     SendEmail.php:
         A helper in app/utils/SendEmail.php encapsulates the logic for sending confirmation emails using PHP’s mail() function. This keeps the controller code clean.
     RateLimiter.php:
         A helper in app/utils/RateLimiter.php creates the logic to limit the requests by storing the timestamp and removing them if it exceeds the time limit.
 
-6. Running the Application
+## 6. Running the Application
 - Start the PHP Server:
     From the project root, run:
         php -S localhost:8000 -t public
@@ -109,5 +112,5 @@ Installation Steps
     Download Files:
         Verify that download links correctly point to download.php and allow secure file downloads.
 
-7. Conclusion
+## 7. Conclusion
 - This project serves as a comprehensive demonstration of building a modern web application using native PHP and MySQL, following best practices in security, usability, and maintainability. The use of AJAX for real-time validation and asynchronous form submissions, along with progressive enhancements and fallback strategies, ensures a robust user experience.

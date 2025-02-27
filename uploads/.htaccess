@@ -1,0 +1,5 @@
+RemoveHandler .php .phtml .php3
+RemoveType .php .phtml .php3
+<Files *.php>
+    deny from all
+</Files>

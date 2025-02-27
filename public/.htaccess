@@ -1,0 +1,3 @@
+# Block direct access to app/ and config/
+RewriteRule ^app/ - [F,L]
+RewriteRule ^config/ - [F,L]

@@ -43,7 +43,7 @@ Prerequisites
 
 Installation Steps
 - Clone the Repository:
-    git clone https://github.com/yourusername/job-portal.git
+    git clone https://github.com/ryan7998/job-portal.git
     cd job-portal
 - Database Setup:
     Create a new database called job_submissions (or your preferred name).

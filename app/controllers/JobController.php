@@ -26,11 +26,11 @@ class JobController extends BaseController
     {
         session_start();
         // limit 5 submission per hour.
-        if (!RateLimiter::check('submit_count')) {
-            http_response_code(429);
-            echo json_encode(['error' => 'Too many submissions. Wait 1 hour.']);
-            exit;
-        }
+        // if (!RateLimiter::check('submit_count')) {
+        //     http_response_code(429);
+        //     echo json_encode(['error' => 'Too many submissions. Wait 1 hour.']);
+        //     exit;
+        // }
 
         // check if js is enabled:
         $jsEnabled = isset($_POST['js_enabled']) && ($_POST['js_enabled'] === 'true');
@@ -108,7 +108,7 @@ class JobController extends BaseController
                 $errors['file'] = 'File size exceeds 5MB';
             } else {
                 $extension = $allowedMimes[$mime];
-                $fileName = uniqid() . '_' . basename($_FILES['file']['name']) . '.' . $extension;
+                $fileName = uniqid() . '_' . basename($_FILES['file']['name']);
                 $uploadPath = $uploadDir . $fileName;
                 if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadPath)) {
                     $filePath = $fileName;
